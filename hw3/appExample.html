@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Fibonacci numbers</title>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Fibonacci numbers</h1>
+
+<p>The Fibonacci sequence is named after Italian mathematician Leonardo of Pisa, known as Fibonacci. His 1202 book Liber Abaci introduced the sequence to Western European mathematics,[6] although the sequence had been described earlier in Indian mathematics.[7][8][9] The sequence described in Liber Abaci began with F1 = 1.</p>
+<p>Fibonacci numbers are closely related to Lucas numbers {\displaystyle L_{n}} L_{n} in that they form a complementary pair of Lucas sequences {\displaystyle U_{n}(1,-1)=F_{n}} U_{n}(1,-1)=F_{n} and {\displaystyle V_{n}(1,-1)=L_{n}} V_{n}(1,-1)=L_{n}. They are intimately connected with the golden ratio; for example, the closest rational approximations to the ratio are 2/1, 3/2, 5/3, 8/5, ... .</P>
+<p>Fibonacci numbers appear unexpectedly often in mathematics, so much so that there is an entire journal dedicated to their study, the Fibonacci Quarterly. Applications of Fibonacci numbers include computer algorithms such as the Fibonacci search technique and the Fibonacci heap data structure, and graphs called Fibonacci cubes used for interconnecting parallel and distributed systems. They also appear in biological settings,[10] such as branching in trees, phyllotaxis (the arrangement of leaves on a stem), the fruit sprouts of a pineapple,[11] the flowering of an artichoke, an uncurling fern and the arrangement of a pine cone's bracts</p>
+
+<img src="https://www.mathsisfun.com/numbers/images/fibonacci-spiral.gif">
+</br>
+
+<input type="text" id="inputText" >
+
+</br>
+
+<button onclick="Fibonacci()">Compute!</button>
+
+<table id="demo"></table>
+<a href="/auth/google">Login with Google</a>
+<script>
+function Fibonacci()
+{
+document.getElementById("demo").innerHTML="<tr><td>"+"n"+"</td>"+"<td>"+"f(n)"+"</td></tr>"+"<tr><td>"+0+"</td>"+"<td>"+0+"</td><tr>";
+var html2=document.getElementById("demo").innerHTML+"<tr><td>"+1+"</td>"+"<td>"+1+"</td></tr>";
+var inputText = parseInt(document.getElementById("inputText").value)
+var number;
+var i;
+var fin = [];
+fin[0] = 0;
+fin[1] = 1 ;
+if(inputText==0)
+{document.getElementById("demo").innerHTML="<tr><td>"+"n"+"</td>"+"<td>"+"f(n)"+"</td></tr>"+"<tr><td>"+0+"</td>"+"<td>"+0+"</td><tr>";}
+else if(inputText == 1)
+{document.getElementById("demo").innerHTML=document.getElementById("demo").innerHTML+"<tr><td>"+1+"</td>"+"<td>"+1+"</td></tr>";}
+else if (inputText < 0)
+{document.getElementById("demo").innerHTML="Cannot compute Fib of a negative integer";}
+else if (inputText > 0){
+
+for(i=2;i<=inputText;i++)
+	{	 
+	
+		fin[i]=fin[i-2] + fin[i-1]; 
+		number=fin[i];		
+		document.getElementById("demo").innerHTML=document.getElementById("demo").innerHTML+"<tr><td>"+i+"</td>"+"<td>"+number+"</td></tr>";
+	}
+	//document.getElementById("demo").innerHTML=parseInt(number);
+  }
+else {
+	document.getElementById("demo").innerHTML="Invalid Input";
+}
+  }
+</script>
+</body>
+
+</html>
+

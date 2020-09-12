@@ -1,0 +1,3 @@
+The part 1 just open part1 html file and click the selection button and then click launch\
+The part 2, you ned to make sure you can run node js in the folder. You can type node part2.js and then go to web browser type 
+http://localhost:8080/part2?message=hello&count=4, you will see 3 hello

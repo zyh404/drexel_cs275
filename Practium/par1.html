@@ -1,0 +1,52 @@
+<html>
+<head>
+<script
+src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+</script>
+<script>
+function service(){
+var URL = "http://www3.septa.org/hackathon/TransitView/?route="+ $("#option1").val();	
+
+$.ajax({
+	type: "GET",
+	url: URL,
+	data: {},
+	dataType: "jsonp",
+	success: function(msg) {
+		var  json= msg;
+		var table="<table><tr><th>Route</th><th>Vehicle</th><th>BlockID</th><th>Direction</th><th>Destination</th></tr>";
+		for (var i = 0;i < json.bus.length;i++){
+			table += "<tr><td>" + $("#option1").val() +"</td><td>";
+			table +=json.bus[i].VehicleID;
+			table +="</td><td>";
+			table +=json.bus[i].BlockID;
+			table +="</td><td>";
+			table +=json.bus[i].Direction;
+			table +="</td><td>";
+			table +=json.bus[i].destination;
+			table+="</td></tr>";
+
+		}
+		table+="</table>"
+		$("#1").html(table);
+	}
+	,error: function(jgXHR, textStatus,errorThrown){
+		alert("Error: " + textStatus + " " + errorThrown);
+		}
+});
+
+}
+</script>
+</head>
+<body>
+<select id = "option1">
+	<option value="6" selected="selected">6</option>
+	<option value="14">14</option>
+	<option value="17">17</option>
+	<option value="20">20</option>
+	<option value="23">23</option>
+</select> 
+<br/><input type=button value = "Launch" id="launch" onclick="service()"/>
+<div id="1"></div>
+</body>
+</html>

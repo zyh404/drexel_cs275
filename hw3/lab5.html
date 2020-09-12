@@ -1,0 +1,32 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/JavaScript" src="client.js"></script>
+</head>
+<body>
+	<div data-role="panel" id="myPanel">
+		<a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" onclick="refresh()" href="#">Home</a>
+		<a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" onclick="displayTablesPage()" href="#">Database Table</a>
+		<a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" onclick="displayTransPage()" href="#">Student Transcript</a>
+	</div>
+	<div data-role="header">
+		<a href="#myPanel">Menu</a>
+		<h1>Hello!</h1>
+	</div>
+	<div data-role="main" class="ui-content" id="content">
+		<h2 style="margin-top: 0">Welcome to Lab 5 of CS 275!</h2>
+	<h2>Using This Page</h2>
+	<p>The main page, which is the file "lab5.html," should not be opened directly in a browser. Instead, open a command-line, such as Command Prompt, navigate to the directory containing server.js, and run the command "node server.js" without quotes. Next, open a browser and type the URL "localhost:8080" as the server is set to listen to port 8080. The server will then display this page and you can begin using the links in the navigation area to the left to try out the calculation and weather services. Click "HOME" to return here anytime.</p>
+	<h3>Notes</h3>
+	<p>This page is set up so that the banner and navigation areas are fixed to the top and left, respectively. It might not be noticeable on larger monitors.</p>
+	<p>Webpage By: Yuehao Zhang</p>
+	<p>Drexel University, 3400 Lancaster Ave </p>
+	</div>	
+	<div data-role="footer">
+    	<h1>Page Footer</h1>
+	</div>
+</body>
+</html>

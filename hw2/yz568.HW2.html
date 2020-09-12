@@ -1,0 +1,90 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js">
+</script>
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<link type="text/css" rel="stylesheet“ href="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+ table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+div.cs275{
+	margin-left: auto;
+    margin-right: auto;
+}
+</style>
+</head>
+	<body>
+		<div data-role="header">
+    <h1>Assignment2</h1>
+  </div>
+		<input type="password" id="key"  placeholder="Enter desired key here"/>
+		<button class="ui-btn" onclick="requestWeather()">Get the weather!</button>
+		<table data-role="table" class="ui-responsive">
+		<thead>
+        	<tr>
+        	</tr>
+        </thead>
+        <tbody>
+        	<table id ="current" class="center">
+        </tbody>
+		</table>
+		<div data-role="footer">
+    	<h1>CS275</h1>
+  </div>
+</body>
+<script>
+function requestWeather(){
+var key = $("#key");//'54128c16ecd65d87';
+var URL = "https://api.wunderground.com/api/" + key.val() + "/geolookup/q/autoip.json";
+console.log(URL);
+$.ajax({
+type: "GET",
+url : URL,
+dataType : "jsonp",
+success : function(msg){
+var json = msg;
+if(json.response.error==undefined){
+//var city = json.current_observation.display_location.full;
+//var time = json.current_observation.local_time_rfc822;
+var zip  = json.location.zip;
+//document.getElementById("current").innerHTML=zip;
+var URL2 ="https://api.wunderground.com/api/" + key.val() + "/hourly/q/" + zip +".json";
+console.log(URL2);
+$.ajax({
+type: "GET",
+url : URL2,
+dataType : "jsonp",
+success : function(msg){
+var json = msg;
+if(json.response.error==undefined){
+$.each(json.hourly_forecast,function(i,item){
+	var time=json.hourly_forecast[i].FCTTIME.pretty;
+	document.getElementById("current").innerHTML=document.getElementById("current").innerHTML+"<tr><td>"+time+"<img src='" + json.hourly_forecast[i].icon_url+"'/></td></tr>" 
+	})
+}
+else
+document.getElementById("current").innerHTML="ERROR";
+},
+error: function(jgXHR, textStatus,errorThrown){
+alert("Error: " + textStatus + " " + errorThrown);
+}
+});
+}
+else
+document.getElementById("current").innerHTML="ERROR";
+},
+error: function(jgXHR, textStatus,errorThrown){
+alert("Error: " + textStatus + " " + errorThrown);
+}
+});
+
+}
+</script>	
+
+</html>

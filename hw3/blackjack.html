@@ -1,0 +1,84 @@
+<html>
+<head>
+	<title>BlackJack</title>
+<style>
+#main_menu {
+  position: fixed;
+  float: left;
+  top: 0;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+</style>
+	
+	<!-- meta tag to ensure proper rendering and touch zooming -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--jQuery Mobile stylesheets -->
+	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+	<!-- jQuery library -->
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<!-- jQuery Mobile library -->
+	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+	//Set the instructions in the content
+	function callHome(){
+		var instructions = "<p>"
+			+ "Welcome to 21! BlackJack."
+			+"<br>"
+			+ "To use this page click the Start menu button at the top." 
+			+ "<br>"
+			+ "A panel will appear with three seperate buttons"
+			+ "<br>"
+			+ "New Game : Upon clicking this, it will start a fresh BlackJack game for you"
+			+ "<br>"
+			+"Rules: This button will tell you the rules of BlackJack!"
+			+ "<br>"
+			+ "How to Play: This button will Tell you how to play our game."
+			+ "<br>"
+			+ "To get back to the login page at anytime,click the menu button to access the panel again. "
+			+ "</p>";
+		
+		$('#content').html(instructions);
+	}
+</script>	
+</head>
+<body onload="callHome()">
+
+	<!-- div for the page itself -->
+	<div data-role="page">
+		<!-- Panel -->
+		<div data-role="panel" id="myPanel">
+			<div data-role="Panel" id="myPanel">
+				<p>Option Menu</p>
+				<!-- buttons on the panel -->
+				<a href="#myPanel" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-arrow ui-btn-icon-left" onclick='callHome()' >New Game</a>
+				<a href="#myPanel" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-plus ui-btn-icon-left" onclick='callCompute()' >Rules</a>
+				<a href="#myPanel" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-cloud ui-btn-icon-left" onclick='callWeather()'>How to Play</a>
+				<a href="#myPanel" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-home ui-btn-icon-left" onclick='callWeather()'>Return to Log In Screen</a>
+			</div>	
+		</div>
+			<!-- Header div -->
+			<div data-role="header">
+				<!-- main button div -->
+				<div id="main_menu" data-role="main" class="ui-content">
+					<!-- menu button -->
+					<a href="#myPanel" class="ui-btn ui-btn-inline  ui-corner-all ui-btn-a ui-icon-bars ui-shadow ui-btn-icon-left">Start Menu</a>			
+				</div>	
+				<h1>Group Project</h1>
+			</div> 
+			<!-- Content inside panel between header and footer -->
+			<div id='content' data-role="content">	
+			</div>	
+			<!-- Div for Footer -->
+			<div id="footer" data-role="footer">
+				<h2>The Pickle Ricks</h2>
+			</div>	
+	</div><!-- /page -->
+	
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</script>
+
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<script>
+	function calculation(){
+	var value = $("#seed").val();
+	var way = $("#mySelect").val();
+	
+	params = {
+		number: value
+	};
+	var URL = "http://localhost:8080/" + way
+	$.ajax({
+		type : "GET",
+		url : URL,
+		dataType : "html",
+		data : params,
+		success : function(msg){
+		document.getElementById("current").innerHTML = msg;
+		
+	},
+		error: function(jgXHR, textStatus,errorThrown){
+		alert("Error: " + textStatus + " " + errorThrown);
+		}
+	
+	});
+}	
+</script>
+
+<body>
+	<input type=text id="seed"/>
+	</br>
+	</br>
+	<select id="mySelect">
+		<option value="fact">n-Factorial</option>
+		<option value="sum">Summation Series</option>
+	</select>
+	<br>
+	<br>
+	<button onclick="calculation()">Calculate</button>
+	<div id= "current"></div>
+</body>
+
+</html>

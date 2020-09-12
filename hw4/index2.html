@@ -1,0 +1,48 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/JavaScript" src="client.js"></script>
+</head>
+<body>
+	<div data-role="panel" id="myPanel">
+		<a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" onclick="refresh()" href="#">Home</a>
+		<a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" onclick="displayCalc()" href="#">Computer</a>
+		<a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" onclick="displayWeather()" href="#">Weather</a>
+	</div>
+	<div data-role="header">
+		<a href="#myPanel">Menu</a>
+		<h1>Hello!</h1>
+	</div>
+	<div data-role="main" class="ui-content" id="content">
+		<h2 style="margin-top: 0">Welcome to Lab 4 of CS 275!</h2>
+	<p>The purpose of this lab is three-fold:</p>
+	<ol>
+		<li>Allowing for multiple pages with a mixture of static and dynamically generated content.</li>
+		<li>Beginning to apply good software design principles by segmenting logic into their own modules.</li>
+		<li>Getting experience from playing with Node.js emitters.</li>
+	</ol>
+	<p>This lab integrates content from both labs 2 and 3, which involved the following:</p>
+	<ul>
+		<li>Lab 2 -  Learn how to utilize jQuery and Ajax to develop a web page to invoke the Weather Wunderground web service and parse its JSON response</li>
+		<li>Lab 3 - Two-fold:
+			<ul>
+			<li>Set up and test a server side environment</li>
+			<li>Get acquainted with Node.js basics, including interactions between client and server along with the development of a simple dynamic web service</li>
+			</ul>
+		</li>
+	</ul>
+	<h2>Using This Page</h2>
+	<p>The main page, which is the file "index.html," should not be opened directly in a browser. Instead, open a command-line, such as Command Prompt, navigate to the directory containing server.js, and run the command "node server.js" without quotes. Next, open a browser and type the URL "localhost:8080" as the server is set to listen to port 8080. The server will then display this page and you can begin using the links in the navigation area to the left to try out the calculation and weather services. Click "HOME" to return here anytime.</p>
+	<h3>Notes</h3>
+	<p>This page is set up so that the banner and navigation areas are fixed to the top and left, respectively. It might not be noticeable on larger monitors.</p>
+	<p>Webpage By: Yuehao Zhang</p>
+	<p>Drexel University, 3400 Lancaster Ave </p>
+	</div>	
+	<div data-role="footer">
+    	<h1>Page Footer</h1>
+	</div>
+</body>
+</html>
